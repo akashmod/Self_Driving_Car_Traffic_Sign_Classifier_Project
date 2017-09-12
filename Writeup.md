@@ -62,7 +62,7 @@ As a last step, I normalized the image data because for the learning process the
 
 
 #### The Final Model Architecture 
-My final model consisted of the following layers:
+I have used the famous LeNet architecture with some customization for classifying the images. My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -93,7 +93,7 @@ training set accuracy of 99%
 validation set accuracy of 95% 
 test set accuracy of 100%
 
-First, I chose the multi-scale architecture as described in the paper mentioned in the description of the project. The multiscale architecture involved sending the outputs of each of the layers to the classifier. This ensures the use of low level features in the classification of the images. However, I realized this only increased the training accuracy of the model rather than the validation accuracy of the model. The increase of the validation accuracy would require the resolution of the overfitting problem of the model. I used a dropout layer at the end of the model, i.e. at the layer before the classifier to avoid losing of information by incorporating the dropout layer earlier in the model. I had also tried using two dropout layers in the model but that only led to underfitting problem and hence the idea was dropped.
+First, I chose the multi-scale architecture as described in the paper[1] on multiscale classification mentioned in the description of the project. The multiscale architecture involved sending the outputs of each of the layers to the classifier. This ensures the use of low level features in the classification of the images. However, I realized this only increased the training accuracy of the model rather than the validation accuracy of the model. The increase of the validation accuracy would require the resolution of the overfitting problem of the model. I used a dropout layer at the end of the model, i.e. at the layer before the classifier to avoid losing of information by incorporating the dropout layer earlier in the model. I had also tried using two dropout layers in the model but that only led to underfitting problem and hence the idea was dropped.
 The dropout layer deactivated half of the elements in the final logits before the classifier to remove the dependence of the model on a few elements in the model. The training of the model using dropout takes higher epochs. The validation accuracy is seen to rise slowly throughout the iterations. Care must be taken however to remove the dropout layer when evaluating the accuracy.
  
 
@@ -178,6 +178,8 @@ For the fifth image, we see that the program has a
 | 0	      		    	| Speed Limit 50 kmph 			                |
 | 0			    	    | Roundabout mandatory                          |
 
+#### References
 
+1. Sermanet P., LeCun Y., Traffic Sign Recognition with Multi-scale Convolution Networks, Courant Institute of Mathematical Sciences, New York University.
 
 
